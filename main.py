@@ -1,6 +1,10 @@
-import config
+"""
+Main
+"""
+
 import json
 import requests
+import config
 
 
 class MyGit():
@@ -11,11 +15,11 @@ class MyGit():
 
     def get_public_email_addresses(self):
         """Method to retrieve public email addresses"""
-        return self.session.get(config.BASE_URL+'/user/public_emails')
+        return self.session.get(config.BASE_URL + '/user/public_emails')
 
     def get_email_addresses(self):
         """Method to retrieve email addresses"""
-        return self.session.get(config.BASE_URL+'/user/emails')
+        return self.session.get(config.BASE_URL + '/user/emails')
 
     def add_email_address(self, emails):
         """Method to add email address(es)
@@ -23,7 +27,7 @@ class MyGit():
         Args:
             emails (list): list of emails
         """
-        return self.session.post(config.BASE_URL+'/user/emails',
+        return self.session.post(config.BASE_URL + '/user/emails',
                                  data=json.dumps(emails))
 
     def delete_email_address(self, emails):
@@ -32,7 +36,7 @@ class MyGit():
         Args:
             emails (list): list of emails
         """
-        return self.session.delete(config.BASE_URL+'/user/emails',
+        return self.session.delete(config.BASE_URL + '/user/emails',
                                    data=json.dumps(emails))
 
     def toggle_primary_email_visibility(self, emails):
@@ -41,7 +45,7 @@ class MyGit():
         Args:
             emails (list): list of emails
         """
-        return self.session.patch(config.BASE_URL+'/user/email/visibility',
+        return self.session.patch(config.BASE_URL + '/user/email/visibility',
                                   data=json.dumps(emails))
 
 

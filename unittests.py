@@ -2,9 +2,9 @@
 Unittests
 """
 
-import config
 import unittest
 
+import config
 from main import MyGit
 
 
@@ -58,7 +58,6 @@ class TestEmails(unittest.TestCase):
 
     def test_toggle_primary_email_visibility(self):
         self.auth.toggle_primary_email_visibility([self.test_email])
-        import ipdb; ipdb.set_trace()
         emails = self.auth.get_email_addresses()
         mail_visibility = [mail['visibility'] for mail in emails.json()
                            if mail['email'] == self.test_email]
